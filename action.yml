@@ -3,7 +3,7 @@ description: Overwrite a env file with the given content
 author: JeongMin Oh
 
 branding:
-  icon: file-code
+  icon: file
   color: purple
 
 inputs:
