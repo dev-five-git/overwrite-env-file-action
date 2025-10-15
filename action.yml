@@ -1,9 +1,9 @@
-name: Github Action Template
-description: Github Action Template
+name: Overwrite Env File
+description: Overwrite a env file with the given content
 author: JeongMin Oh
 
 branding:
-  icon: file-text
+  icon: file-code
   color: purple
 
 inputs:
