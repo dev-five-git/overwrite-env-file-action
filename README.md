@@ -6,7 +6,7 @@ This GitHub Action allows you to overwrite the contents of an environment file w
 
 ```yaml
 - name: Overwrite production env file with development env file
-  uses: ./action-tools/overwrite-env-file
+  uses: dev-five-git/overwrite-env-file-action@v1
   with:
     input: .env.development
     output: .env.production
