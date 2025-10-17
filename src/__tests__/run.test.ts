@@ -27,6 +27,7 @@ mock.module('@actions/glob', () => ({
   create: mockCreate,
 }))
 
+import { dirname, join } from 'node:path'
 import { run } from '../run'
 
 test('should overwrite files successfully', async () => {
@@ -79,15 +80,20 @@ test('should overwrite files successfully', async () => {
 
   // Verify writeFile was called for each file with correct content
   expect(mockWriteFile).toHaveBeenCalledTimes(testFiles.length)
-  testFiles.forEach(() => {
-    expect(mockWriteFile).toHaveBeenCalledWith(testOutputFile, testFileContent)
+  testFiles.forEach((file) => {
+    const newOutputFilePath = join(dirname(file), testOutputFile)
+    expect(mockWriteFile).toHaveBeenCalledWith(
+      newOutputFilePath,
+      testFileContent,
+    )
   })
 
   // Verify info was called for each file
   expect(mockInfo).toHaveBeenCalledTimes(testFiles.length)
   testFiles.forEach((file) => {
+    const newOutputFilePath = join(dirname(file), testOutputFile)
     expect(mockInfo).toHaveBeenCalledWith(
-      `Overwrote ${file} to ${testOutputFile}`,
+      `Overwrote ${file} to ${newOutputFilePath}`,
     )
   })
 })

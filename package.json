@@ -1,6 +1,6 @@
 {
 	"name": "overwrite-env-file",
-	"version": "1.0.0",
+	"version": "1.0.1",
 	"description": "Overwrite a env file with the given content",
 	"author": "JeongMin Oh",
 	"license": "Apache-2.0",
